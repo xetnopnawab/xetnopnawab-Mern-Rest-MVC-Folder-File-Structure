@@ -2,12 +2,14 @@
   "name": "node-modals",
   "version": "1.0.0",
   "description": "",
-  "main": "axios.server.js",
+  "main": "url.shortner.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node  -r dotenv/config --experimental-json-modules ./axios.server.js",
-    "dev": "nodemon  -r dotenv/config --experimental-json-modules ./axios.server.js"
+    "server": "nodemon  -r dotenv/config --experimental-json-modules ./axios.server.js",
+    "clients": "npm run dev --prefix ../clients  ",
+    "dev": " concurrently \"npm run server\" \"npm run clients\""
   },
   "author": "Md Nawab",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "axios": "^1.6.3",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "concurrently": "^8.2.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -24,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
+    "nanoid": "^5.0.4",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",

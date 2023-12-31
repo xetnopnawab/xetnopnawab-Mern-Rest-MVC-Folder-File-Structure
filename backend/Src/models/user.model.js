@@ -44,4 +44,4 @@ const userSchema = new mongoose.Schema(
 );
 // userSchema.plugin(plm);
 //module.exports = mongoose.model("User", userSchema); or
-export const User = mongoose.model("Users", userSchema);
+export const Users = mongoose.model("Users", userSchema);

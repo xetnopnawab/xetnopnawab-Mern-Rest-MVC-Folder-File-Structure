@@ -10,6 +10,10 @@ import passport from "passport";
 
 const app = express();
 
+
+app.set("view engine", "ejs");
+
+
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,
@@ -23,7 +27,7 @@ app.use(
   session({
     resave: false, // agar session ki value change na hue ho to fir se save mat krna
     saveUninitialized: false,
-    secret: "ho gya hai pyar sajni",
+    secret: "PLM-Validator",
   })
 );
 //! passport js setup
@@ -32,9 +36,14 @@ app.use(passport.session()); // persistent login sessions
 // passport.serializeUser(usersRouter.serializeUser());
 // passport.deserializeUser(usersRouter.deserializeUser());
 
+// passport.use(new passportLocal(Auth.authenticate()));
+// passport.use(Auth.createStrategy());
+
+
 // flash used here: popup massage show
 app.use(flash());
 app.use(logger("dev"));
+// app.use(express.static(path.join(__dirname + 'public')));
 app.use(express.json({ limit: "16kb" })); // to support JSON-encoded bodies
 app.use(express.urlencoded({ extends: true, limit: "16kb" })); // to support URL-encoded bodies
 app.use(express.static("public"));
